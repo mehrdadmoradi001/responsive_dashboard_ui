@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dashboard_ui/constants.dart';
+import 'package:responsive_dashboard_ui/util/my_box.dart';
+import 'package:responsive_dashboard_ui/util/my_tile.dart';
 
 class MobileScaffold extends StatefulWidget {
   const MobileScaffold({Key? key}) : super(key: key);
@@ -11,33 +14,30 @@ class _MobileScaffoldState extends State<MobileScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
-      appBar: AppBar(
-        backgroundColor: Colors.grey[900],
-      ),
-      drawer: Drawer(
-        backgroundColor: Colors.grey[300],
-        child: Column(
-          children: const [
-            DrawerHeader(child: Icon(Icons.favorite)),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('D A S H B O A R D'),
+      backgroundColor: myDefaultBackground,
+      appBar: myAppBar,
+      drawer: myDrawer,
+      body: Column(
+        children: [
+          //4 box on the top
+          AspectRatio(
+            aspectRatio: 1,
+            child: SizedBox(
+              width: double.infinity,
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemBuilder: (context, index) {
+                  return const MyBox();
+                },
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.chat),
-              title: Text('M E S S A G E'),
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('S E T T I N G S'),
-            ),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('L O G O U T'),
-            ),
-          ],
-        ),
+          ),
+          //tile below it
+          Expanded(child: ListView.builder(itemBuilder: (context, index) {
+            return const MyTile();
+          },))
+        ],
       ),
     );
   }
