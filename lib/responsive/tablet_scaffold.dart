@@ -35,12 +35,14 @@ class _TabletScaffoldState extends State<TabletScaffold> {
             ),
           ),
           //tile below it
-          Expanded(child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return const MyTile();
-            },
-          ))
+          Expanded(
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return const MyTile();
+              },
+            ),
+          ),
         ],
       ),
     );

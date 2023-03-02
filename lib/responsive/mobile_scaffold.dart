@@ -34,9 +34,13 @@ class _MobileScaffoldState extends State<MobileScaffold> {
             ),
           ),
           //tile below it
-          Expanded(child: ListView.builder(itemBuilder: (context, index) {
-            return const MyTile();
-          },))
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return const MyTile();
+              },
+            ),
+          ),
         ],
       ),
     );

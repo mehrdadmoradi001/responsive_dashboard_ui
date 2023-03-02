@@ -42,7 +42,8 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                   ),
                 ),
                 //tile below it
-                Expanded(child: ListView.builder(
+                Expanded(
+                    child: ListView.builder(
                   itemCount: 4,
                   itemBuilder: (context, index) {
                     return const MyTile();
